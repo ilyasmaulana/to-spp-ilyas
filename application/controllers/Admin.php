@@ -26,4 +26,13 @@ class Admin extends CI_Controller
 		$this->load->view('admin/index', $data);
 		$this->load->view('templates/footer');
 	}
+
+	public function forbidden()
+	{
+		$data['title'] = "Access Forbidden";
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/navbar');
+		$this->load->view('admin/forbidden', $data);
+		$this->load->view('templates/footer');
+	}
 }

@@ -27,7 +27,7 @@
                     </div>
                     <!-- end role -->
                     <div class="image">
-                      <img src="assets/images/profile/profile-image.png" alt="" />
+                      <img src="<?= base_url('assets'); ?>/images/profile/profile-image.png" alt="" />
                       <span class="status"></span>
                     </div>
                   </div>

@@ -18,6 +18,10 @@ class Petugas extends CI_Controller
                 </div>');
 			redirect('auth');
 		}
+
+		if ($this->session->userdata('level') != "admin") {
+			redirect('admin/forbidden');
+		}
 	}
 
 	public function index()
