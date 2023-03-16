@@ -39,6 +39,13 @@
                       <th>
                         <h6>NO</h6>
                       </th>
+                      <?php if ($this->session->userdata('level') != "petugas") : ?>
+                        <th>
+                          <h6>Nama Petugas</h6>
+                        </th>
+                      <?php else : ?>
+                        <!-- none -->
+                      <?php endif; ?>
                       <th>
                         <h6>NISN</h6>
                       </th>
@@ -68,12 +75,15 @@
                   </thead>
                   <tbody>
                     <?php $no = 1; ?>
-                    <?php if ($this->session->userdata('level') == "kepsek") : ?>
+                    <?php if ($this->session->userdata('level') != "petugas") : ?>
                       <!-- For Kepsek -->
                       <?php foreach ($pembKepsek as $p) : ?>
                         <tr>
                           <td>
                             <p><?= $no; ?></p>
+                          </td>
+                          <td>
+                            <p><?= $p['nama_petugas']; ?></p>
                           </td>
                           <td>
                             <p><?= $p['nisn']; ?></p>

@@ -36,7 +36,7 @@
               </button>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
                 <li>
-                  <a href="<?= base_url('auth/logout'); ?>"> <i class="lni lni-exit"></i> Sign Out </a>
+                  <a href="<?= base_url('auth/logout'); ?>"> <i class="lni lni-exit text-danger"></i> Logout </a>
                 </li>
               </ul>
             </div>

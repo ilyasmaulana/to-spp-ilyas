@@ -23,9 +23,9 @@
   <section class="signin-section">
     <div class="container-fluid">
 
-      <div class="row justify-content-center">
-        <div class="col-lg-4">
-          <div class="signin-wrapper mt-5">
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-4 col-md-6 col-sm-8">
+          <div class="signin-wrapper mt-5 pt-4">
             <div class="form-wrapper">
               <h2 class="text-center my-3">Sign In</h2>
               <form action="<?= base_url('auth') ?>" method="post">

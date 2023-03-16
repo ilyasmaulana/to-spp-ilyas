@@ -25,7 +25,7 @@ class Spp extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = "Spp";
+		$data['title'] = "SPP";
 		$data['spp'] = $this->sm->getAllSpp();
 
 		$this->load->view('templates/sidebar', $data);

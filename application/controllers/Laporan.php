@@ -49,7 +49,7 @@ class Laporan extends CI_Controller
 		
 		$data['title'] = "Laporan Pembayaran SPP";
 		$data['pembayaran'] = $this->lm->getPembayaranByMonth($bulan);
-		$data['pembKepsek'] = $this->lm->getPembayaranForKepsek();
+		$data['pembKepsek'] = $this->lm->getPembayaranForKepsekByMonth($bulan);
 
 		$this->load->view('laporan/cetak', $data);
 	}
@@ -60,7 +60,7 @@ class Laporan extends CI_Controller
 
 		$data['title'] = "Laporan Pembayaran SPP";
 		$data['pembayaran'] = $this->lm->getPembayaranByYear($tahun);
-		$data['pembKepsek'] = $this->lm->getPembayaranForKepsek();
+		$data['pembKepsek'] = $this->lm->getPembayaranForKepsekByYear($tahun);
 
 		$this->load->view('laporan/cetak', $data);
 	}

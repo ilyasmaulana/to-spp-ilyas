@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
-  <title>Tables | PlainAdmin Demo</title>
+  <title><?= $title; ?></title>
 
   <!-- ========== All CSS files linkup ========= -->
   <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" />
@@ -33,44 +33,34 @@
               <table class="table table-responsive table-bordered border-dark caption-top">
                 <thead>
                   <tr>
-                    <th>
-                      <h6>NO</h6>
-                    </th>
-                    <th>
-                      <h6>NISN</h6>
-                    </th>
-                    <th>
-                      <h6>Nama Siswa</h6>
-                    </th>
-                    <th>
-                      <h6>Kelas</h6>
-                    </th>
-                    <th>
-                      <h6>Tanggal</h6>
-                    </th>
-                    <th>
-                      <h6>Bulan</h6>
-                    </th>
-                    <th>
-                      <h6>Tahun</h6>
-                    </th>
-                    <th>
-                      <h6>No Telepon</h6>
-                    </th>
-                    <th>
-                      <h6>Laporan</h6>
-                    </th>
+                    <th>NO</th>
+                    <?php if ($this->session->userdata('level') != "petugas") : ?>
+                      <th>Nama Petugas</th>
+                    <?php else : ?>
+                      <!-- none -->
+                    <?php endif; ?>
+                    <th>NISN</th>
+                    <th>Nama Siswa</th>
+                    <th>Kelas</th>
+                    <th>Tanggal</th>
+                    <th>Bulan</th>
+                    <th>Tahun</th>
+                    <th>No Telepon</th>
+                    <th>Laporan</th>
                   </tr>
                   <!-- end table row-->
                 </thead>
                 <tbody>
                   <?php $no = 1; ?>
-                  <?php if ($this->session->userdata('level') == "kepsek") : ?>
+                  <?php if ($this->session->userdata('level') != "petugas") : ?>
                     <!-- For Kepsek -->
                     <?php foreach ($pembKepsek as $p) : ?>
                       <tr>
                         <td>
                           <p><?= $no; ?></p>
+                        </td>
+                        <td>
+                          <p><?= $p['nama_petugas']; ?></p>
                         </td>
                         <td>
                           <p><?= $p['nisn']; ?></p>
