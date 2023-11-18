@@ -67,9 +67,11 @@
                       <td>
                         <div class="form-check form-switch toggle-switch">
                           <?php if ($p['is_active'] == "Y") : ?>
-                            <input class="form-check-input" type="checkbox" id="toggleSwitch1" checked />
+                            <a href="<?= base_url('petugas/changeIsActive/') . $p['id_petugas']; ?>">
+                              <input class="form-check-input" type="checkbox" id="toggleSwitch1" checked />
+                            </a>
                           <?php else : ?>
-                            <input class="form-check-input" type="checkbox" id="toggleSwitch1"  />
+                            <input class="form-check-input" type="checkbox" id="toggleSwitch1" />
                           <?php endif; ?>
                         </div>
                       </td>

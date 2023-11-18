@@ -29,7 +29,7 @@
     <!-- Sidebar -->
     <nav class="sidebar-nav">
       <ul>
-        <li class="nav-item <?= ($title == "Admin") ? 'active' : '' ?>"">
+        <li class="nav-item <?= ($title == "Admin") ? 'active' : '' ?>">
           <a href=" <?= base_url('admin') ?>">
           <span class="icon">
             <i class="lni lni-dashboard"></i>

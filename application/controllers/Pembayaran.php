@@ -7,7 +7,7 @@ class Pembayaran extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Pembayaran_model', 'pm');
+		$this->load->model('Pembayaran_model', 'pmd');
 		$this->load->model('Siswa_model', 'smd');
 		$this->load->helper('date');
 
@@ -18,6 +18,10 @@ class Pembayaran extends CI_Controller
                   </div>
                 </div>');
 			redirect('auth');
+		}
+
+		if ($this->session->userdata('level') == 'kepsek') {
+			redirect('admin/forbidden');
 		}
 	}
 
@@ -36,18 +40,18 @@ class Pembayaran extends CI_Controller
 	{
 		$this->form_validation->set_rules('tahun', 'Tahun bayar', 'required');
 		$this->form_validation->set_rules('bulan', 'Bulan bayar', 'required');
-		
+
 		if ($this->form_validation->run() == false) {
 
 			$data['title'] = "Bayar SPP";
 			$data['siswa'] = $this->smd->getSiswaById($id);
-			
+
 			$this->load->view('templates/sidebar', $data);
 			$this->load->view('templates/navbar');
 			$this->load->view('pembayaran/pembayaran-tambah', $data);
 			$this->load->view('templates/footer');
 		} else {
-			$this->pm->insertPembayaran();
+			$this->pmd->insertPembayaran();
 
 			$this->session->set_flashdata('Pembayaran_message', '<div class="alert-box info-alert">
                   <div class="alert">
@@ -57,5 +61,4 @@ class Pembayaran extends CI_Controller
 			redirect('pembayaran');
 		}
 	}
-
 }

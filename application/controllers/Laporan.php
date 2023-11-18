@@ -8,8 +8,6 @@ class Laporan extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Laporan_model', 'lm');
-		$this->load->model('Pembayaran_model', 'pm');
-		$this->load->model('Siswa_model', 'smd');
 		$this->load->helper('date');
 
 		if (!$this->session->userdata('username')) {
@@ -36,7 +34,7 @@ class Laporan extends CI_Controller
 	
 	public function cetak()
 	{
-		$data['title'] = "Laporan Pembayaran SPP";
+		$data['title'] = "Laporan Pembayaran SPP Harian";
 		$data['pembayaran'] = $this->lm->getAllPembayaran();
 		$data['pembKepsek'] = $this->lm->getPembayaranForKepsek();
 
@@ -47,7 +45,7 @@ class Laporan extends CI_Controller
 	{
 		$bulan = mdate('%m', time());
 		
-		$data['title'] = "Laporan Pembayaran SPP";
+		$data['title'] = "Laporan Pembayaran SPP Bulanan";
 		$data['pembayaran'] = $this->lm->getPembayaranByMonth($bulan);
 		$data['pembKepsek'] = $this->lm->getPembayaranForKepsekByMonth($bulan);
 
@@ -58,7 +56,7 @@ class Laporan extends CI_Controller
 	{
 		$tahun = mdate('%Y', time());
 
-		$data['title'] = "Laporan Pembayaran SPP";
+		$data['title'] = "Laporan Pembayaran SPP Tahunan";
 		$data['pembayaran'] = $this->lm->getPembayaranByYear($tahun);
 		$data['pembKepsek'] = $this->lm->getPembayaranForKepsekByYear($tahun);
 

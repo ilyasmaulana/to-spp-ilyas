@@ -10,7 +10,7 @@ class Admin extends CI_Controller
 
 		if (!$this->session->userdata('username')) {
 			$this->session->set_flashdata('auth_message', '<div class="alert-box danger-alert">
-                  <div class="alert">
+                <div class="alert">
                     <p class="text-danger text-center">Silahkan login terlebih dahulu!</p>
                   </div>
                 </div>');

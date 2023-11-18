@@ -32,10 +32,10 @@ class Auth extends CI_Controller
 				// cocokkan password
 				if (password_verify($password, $ceklogin['password'])) {
 					$data = [
-						'id_petugas' => $ceklogin['id_petugas'],
-						'username' => $ceklogin['username'],
+						'id_petugas' 	 => $ceklogin['id_petugas'],
+						'username' 		 => $ceklogin['username'],
 						'nama_petugas' => $ceklogin['nama_petugas'],
-						'level' => $ceklogin['level']
+						'level' 			 => $ceklogin['level']
 					];
 					$this->session->set_userdata($data);
 					redirect('admin');
